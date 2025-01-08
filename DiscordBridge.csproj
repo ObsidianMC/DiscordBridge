@@ -1,0 +1,45 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<TargetFramework>net9.0</TargetFramework>
+		<PreserveCompilationContext>false</PreserveCompilationContext>
+		<ProduceReferenceAssembly>false</ProduceReferenceAssembly>
+		<OutputType>Library</OutputType>
+		<EnablePreviewFeatures>true</EnablePreviewFeatures>
+		<EnableDynamicLoading>true</EnableDynamicLoading>
+		<AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+
+		<PluginAssembly>DiscordBridge</PluginAssembly>
+		<PluginVersion>1.0.0</PluginVersion>
+		<PluginApiVersion>1.0.0</PluginApiVersion>
+		<RootNamespace>DiscordBridge</RootNamespace>
+		
+		<!--<PluginPublishDir></PluginPublishDir> Optional: The location where the msbuild task will look for your build output to pack your plugin-->
+
+		<!--Optional: The private key used to sign your plugin. Can either be a file or directly pasted in here. MUST BE IN XML FORMAT-->
+		<!--<PluginSigningKey></PluginSigningKey>-->
+	</PropertyGroup>
+
+	<ItemGroup>
+		<None Update="plugin.json">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="DSharpPlus" Version="5.0.0-nightly-02446" />
+		<PackageReference Include="Obsidian.API" Version="1.0.0-nightly-49">
+			<Private>false</Private>
+			<ExcludeAssets>runtime</ExcludeAssets>
+		</PackageReference>
+		<PackageReference Include="Obsidian.MSBuild" Version="1.0.5-nightly.g1b067ab963" />
+		<PackageReference Include="Microsoft.Extensions.Logging" Version="9.0.0" />
+		<PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="9.0.0">
+			<ExcludeAssets>runtime</ExcludeAssets>
+		</PackageReference>
+	</ItemGroup>
+
+	<!--Can be used to move the plugin after its been packed useful when debugging ^ ^ -->
+	<!--<Target Name="MovePlugin" AfterTargets="PackPlugin">
+		<Move SourceFiles="$(PluginPublishDir)/$(PluginName).obby" DestinationFolder="{YOUR DESTINATION HERE}" />
+	</Target>-->
+</Project>

@@ -1,0 +1,10 @@
+{
+  "name": "Obsidian.DiscordBridge",
+  "id": "DiscordBridge",
+  "version": "1.0.0",
+  "authors": [
+    "ObsidianMC"
+  ],
+  "description": "Discord Chat Bridge for ObsidianMC",
+  "projectUrl": "https://github.com/ObsidianMC/DiscordBridge"
+}
